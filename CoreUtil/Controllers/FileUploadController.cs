@@ -20,7 +20,8 @@ namespace CoreUtil.Controllers
         /// </summary>
         /// <param name="iFormFile"></param>
         /// <returns></returns>
-        [HttpPost("UploadFile")]
+        [HttpPost]
+        [Route("UploadFile")]
         public async Task<string>UploadFile(IFormFile iFormFile)
         {
             if (iFormFile == null || iFormFile.Length == 0)
@@ -41,7 +42,8 @@ namespace CoreUtil.Controllers
         /// </summary>
         /// <param name="iFormFiles"></param>
         /// <returns></returns>
-        [HttpPost("UploadFiles")]
+        [HttpPost]
+        [Route("UploadFiles")]
         public async Task UploadFiles(List<IFormFile> iFormFiles)
         {
             var filePath = Path.GetTempFileName();
@@ -64,6 +66,8 @@ namespace CoreUtil.Controllers
         /// <param name="path"></param>
         /// <param name="filename"></param>
         /// <returns></returns>
+        [HttpGet]
+        [Route("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string path, string filename)
         {
             if (filename == null || filename.Length == 0)
